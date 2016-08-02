@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+	<title>zipity-do-dah!</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Dosis' >
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>	
+    <script src="/scripts/scripts.js"></script>
+	<base href='https://www.zipcodeapi.com/' />
+</head>
+<body> 
+	<div id="header">
+	<img id="header_logo" src="http://zipity.veen.site/img/logo_zipity.png">
+	</div>
+	<div id="notifications" class="alerts_off">
+		<p><span id="alert_msg">Notifications go here...</span></p>
+	</div>
+	<div id="wrapper">
+		<div id="top_box" class="panel">	
+			<p id="intro">Delightfully simple zip code analysis.</p>
+			<p id="interface"><input id="input_zip" name="textfield" type="text" placeholder="Paste your zip codes here..." /><input type="submit" id="go_btn" value="Go!"/></p>
+		</div>
+		<div id="summary_box" class="panel">	
+			<p>Validation Output:&nbsp&nbsp&nbsp<span id="output_span">___________________________________</span></p>
+		</div>
+		<div id="api_box" class="panel">	
+			<p>API Response:</p>
+            <table class="table-fill">
+                <thead>
+                    <tr>
+                        <th class="text-left">State</th><th class="text-left">City</th><th class="text-left">ZIP Code</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body" class="table-hover">
+                    <tr>
+                        <td>state0</td><td>city0</td>
+                    </tr>
+                    <tr>
+                        <td>state1</td><td>city1</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><span id="api_span">___________________________________</span></p>
+            
+            <table class="table-fill">
+                <thead>
+                    <tr>
+                        <th>+/-</th><th class="text-left">State</th><th class="text-left">City</th><th class="text-left">ZIP Code</th><th class="text-left">Count</th>
+                    </tr>
+                </thead>
+                <tbody id="table_test" class="table-hover">
+                    <tr>
+                        <td>-</td><td>California</td><td>2 unique</td><td>3 unique</td><td>10</td>
+                    </tr>
+                    <tr>
+                        <td>-</td><td></td><td>Beverly Hills</td><td>1 unique</td><td>3</td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td>90210</td><td>3</td>
+                    <tr>
+                        <td>-</td><td></td><td>San Francisco</td><td>2 unique</td><td>7</td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td>94101</td><td>3</td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td>94105</td><td>4</td>
+                    </tr>
+                    <tr>
+                        <td>-</td><td>Oregon</td><td>3 unique</td><td>6 unique</td><td>18</td>
+                    </tr>
+                    <tr>
+                        <td>-</td><td></td><td>Bend</td><td>2 unique</td><td>5</td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td>97701</td><td>3</td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td>97702</td><td>2</td>
+                    </tr>
+                    <tr>
+                        <td>-</td><td></td><td>Portland</td><td>3 unique</td><td>9</td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td>97201</td><td>3</td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td>97204</td><td>4</td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td>97232</td><td>2</td>
+                    </tr>
+                    <tr>
+                        <td>-</td><td></td><td>Tigard</td><td>1 unique</td><td>4</td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td>97223</td><td>4</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><span id="api_span_test">___________________________________</span></p>
+            
+            
+		</div> <!-- end #api_box -->
+	</div>  <!-- end #wrapper -->
+</body>
+</html>

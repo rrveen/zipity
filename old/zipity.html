@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<head>
+	<title>zipity-do-dah!</title>
+	<style>
+	:root {
+    	--font: 'Dosis', sans-serif;
+	}
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, 
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	
+	body {
+		background: #00d2ff; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to left, #00d2ff , #3a7bd5); /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to left, #00d2ff , #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+		font-family: var(--font);
+		
+       		
+	}
+	#header {
+		border-bottom: 2px solid #b8b8b8;
+		background-color:white;	
+		vertical-align: baseline;	
+	    height:75px;
+	    position: fixed;
+	    top: 0px;
+	    display: inline-block;
+	    width: 100%;
+	    .margin-bottom: 60px;
+	}
+	#header_logo {
+		margin-top: 10px;
+		margin-left: 5px;
+		vertical-align:	text-bottom;
+	}
+	.panel {
+		min-height: 70px;
+		width: 900px;
+		border-radius: 25px;
+		box-shadow: 2px 2px 2px #b8b8b8;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 30px;
+		background-color: #ffffff;
+		color: #4a4a4a;
+		-webkit-transition: width .3s; /* Safari */
+	    -webkit-transition-timing-function: linear; /* Safari */
+	    transition: width .3s;
+	    transition-timing-function: linear;
+	    padding: 0px 15px;
+	}
+	#top_box {
+		height: 100px;
+		margin-top: 125px;
+
+	}
+	#top_box p {
+		color: #444;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 100px;
+		.margin-left: 60px;
+	}
+	#input_zip {
+		width: 480px;
+		height: 25px;
+		text-align: center;
+	}
+	input[type="text"] {
+		padding: 10px;
+		border: none;
+		border-bottom: solid 2px #c9c9c9;
+		transition: border 0.3s;
+		font-family: var(--font);
+		font-size: 14px;
+	}
+	input[type="text"]:focus,
+	input[type="text"].focus {
+		border-bottom: solid 2px #969696;
+		transition: border 0.3s;
+	}
+	#go_btn {
+		color: white;
+		font-size: 1.5em;
+		border-radius: 50%;
+		border-color: #fff;
+		width: 60px;
+		height: 60px; 
+		margin-left: 10px;
+		background-color: #f0f0f0;
+		text-align: center;
+		vertical-align: middle;
+		border: none;
+		transition: color 0.2s;
+	}
+	#go_btn:hover {
+		background-color: #f4f4f4;
+		color: #363636;
+		cursor: pointer;
+		transition: color 0.5s;
+	}
+	#summary_box {
+		line-height: 100px;
+		text-align: center;
+		vertical-align: middle;
+		display: none;
+	}
+	#api_box {
+		line-height: 100px;
+		text-align: center;
+		vertical-align: middle;
+		display: none;
+	}	
+	#intro {
+		font-family: var(--font);
+		font-size: 2em;
+		color: #f0f0f0;
+		transition: display 1.0s;
+		
+	}
+	.intro_hide {
+		display: none;
+		transition: ease 1.0s;
+
+	}
+	#interface {
+		margin-left: 60px;
+		display: none;
+		transition: display 1.0s;
+	}
+
+	#notifications {
+		width: 100%;
+		.height: 40px;
+		text-align: center;
+		vertical-align: middle;	
+		color: white;
+		background-color: black;
+		background: #485563; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to left, #485563 , #29323c); /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to left, #485563 , #29323c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		transition: height 1.0s;		
+		position: fixed;
+		overflow: hidden;
+		top: 75px;
+	}
+	#notifications p {
+		padding: 13px;
+	}
+	#notifications:hover {
+		height: 40px;
+		transition: height 1.0s;
+	}
+	#notifications.alerts_on {
+		height: 40px;
+		.background: #FF512F; /* fallback for old browsers */
+		.background: -webkit-linear-gradient(to left, #FF512F , #DD2476); /* Chrome 10-25, Safari 5.1-6 */
+		.background: linear-gradient(to left, #FF512F , #DD2476); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+	}
+	.alerts_off {
+		height: 2px;
+	}
+	
+	@media only screen and (max-width: 1000px) {  /* Smaller Screen */
+    	.panel {
+             width: 700px;
+
+		}
+	}
+	
+	@media only screen and (max-width: 900px) {  /* Tablet-Landscape */
+    	.panel {
+             width: 680px;
+
+		}
+	}	
+	
+
+	
+	</style>
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js">
+	</script>	
+	
+	<link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+	<base href='https://www.zipcodeapi.com/' />
+
+</head>
+
+<body> 
+	<div id="header">
+	<img id="header_logo" src="file:///Volumes/Macintosh%20HD/Users/randy/Desktop/Zipity/logo_zipity.png">
+	</div>
+	<div id="notifications" class="alerts_off">
+		<p><span id="alert_msg">Notifications go here...</span></p>
+	</div>
+	<div id="wrapper">
+		<div id="top_box" class="panel">	
+			<p id="intro">Delightfully simple zip code analysis.</p>
+			<p id="interface"><input id="input_zip" name="textfield" type="text" placeholder="Paste your zip codes here..." /><input type="submit" id="go_btn" value="Go!"/></p>
+		</div>
+		<div id="summary_box" class="panel">	
+			<p>Validation Output:&nbsp&nbsp&nbsp<span id="output_span">___________________________________</span></p>
+		</div>
+		<div id="api_box" class="panel">	
+			<p>API Output:&nbsp&nbsp&nbsp<span id="api_span">___________________________________</span></p>
+		</div>		
+	</div>
+	<script>
+	
+	$(document).ready(function(){
+		
+		$("#input_zip").val("");  											// resets the input_zip box
+		
+		setTimeout(function(){												// fades out the intro
+			$("#intro").fadeOut(900);
+		}, 2000);	
+	
+		setTimeout(function(){												// fades in the input bar and go button
+			$("#interface").fadeIn(900);
+		}, 3000);	
+		
+		$("#go_btn").click(function() {										// when the go-btn is clicked...
+			notify("Processing ZIP Code Data...");							// activate the alert div
+			processInput();													// scrub the user input into a csv
+			setTimeout(														// wait a few seconds
+				function() {
+				    $("#summary_box").fadeIn(1000);							// fade in the summary box
+				    setTimeout(												// wait a second
+						function() {
+						    $("#api_box").fadeIn(1000);						// fade in the api output box
+						}, 1000);
+				}, 3000);
+			displayCleanInput();
+			callApi();
+		});																	// end of Go Button onclick function
+	});																		// end of document.ready
+	
+	$(function() {																				// clicks the go_btn when you hit enter
+	    $("#input_zip").keypress(function (e) {
+	        if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+	            $('#go_btn').click();
+	            return false;
+	        } else {
+	            return true;
+	        }
+	    });
+	});																							// end of enter key funtion
+		
+	
+	function notify(message){																	// start the notify function
+		$("#alert_msg").html(message);															// insert the message var into the html of the doc
+		$("#notifications").attr("class", "alerts_on");											// set the class of the alerts div to on
+		setTimeout(function(){																	// wait three seconds
+			$('#notifications').attr("class", "alerts_off");									// and then turn the alerts div off
+		}, 3000);
+	}
+
+	var input_clean = "";																		// define and clear the input_clean var
+	function processInput(){
+		input_clean = jQuery.trim($("#input_zip").val())										// grab the val of input_zip and trim off outer whitespace...
+						 	//.match(/\b\d{5}/g)
+							.replace(/\D+/g, " ")												// TESTING REMOVE A-Za-z chars!!!!!!
+							.replace(/\b\d{4}\b/g, " ")
+							.replace(/\b\d{3}\b/g, " ")
+							.replace(/\b\d{2}\b/g, " ")
+							.replace(/\b\d{1}\b/g, " ")
+							.trim()
+               			  	.replace(/\s+/g, ", ");												// then replace remaining whitespace with ", " and store it as input_clean...
+	}	
+	
+	function displayCleanInput(){
+		$("#output_span").html( input_clean );													// output input_clean in the output_span
+	}
+	
+	var zipCodes = $("#api_span")
+	var api_key = "js-xYoBB1cKfbKylJWFtUEazoEECdFTgtmNsKp3MBO2MyA8hxNLrrV0PzFsNkl4OHSg";		// set the api key
+	function callApi(){
+		$.ajax({
+			type: 'GET',
+			dataType: "json",
+			xhrFields: {
+				withCredentials: true
+			},
+			url: 'https://www.zipcodeapi.com/rest/' + api_key + '/multi-info.json/' + input_clean + '/degrees',
+			success: function(zipCodes){
+				console.log('success', zipCodes);
+				alert(zipCodes);
+			},
+			error: function() {
+				alert('Error: https://www.zipcodeapi.com/rest/' + api_key + '/multi-info.json/' + input_clean + '/degrees');
+			}
+		});
+		
+	}
+	
+	
+	</script>
+</body>
+</html>
